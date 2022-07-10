@@ -20,6 +20,29 @@ form.addEventListener("submit", (e) => {
     else if ("payment" === type.value.toLowerCase()) {
         doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
     }
-    //console.log(doc?.format());
     list.render(doc, type.value, "end");
 });
+//Generic
+const addUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let docOne = addUID({ name: "yoshi", age: 40 });
+//let docTwo = addUID("hello"); //invalid
+console.log(docOne.name);
+console.log(docOne.age);
+const docThree = {
+    uid: 0,
+    name: "person",
+    data: "shaun",
+};
+const docFour = {
+    uid: 1,
+    name: "shoppingList",
+    data: [
+        "bread",
+        "milk",
+        "toilet roll",
+    ],
+};
+console.log(docThree, docFour);

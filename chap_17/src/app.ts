@@ -27,6 +27,5 @@ form.addEventListener("submit", (e: Event) => {
         doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
     } 
 
-    //console.log(doc?.format());
     list.render(doc, type.value, "end");
 })

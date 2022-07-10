@@ -38,3 +38,4 @@ tup[1] = 30;
 let student;
 //student = [123, "akuma"]  //invalid
 student = ["chun-li", 123]; //valid
+

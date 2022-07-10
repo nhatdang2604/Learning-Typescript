@@ -5,29 +5,23 @@
         - Create the html template (li, h4, p)
         - Add the 'li' template to the start/end of the list
 */
-
-import { HasFormatter } from "../interfaces/HasFormatter";
-
 export class ListTemplate {
-
-    public constructor(private container: HTMLUListElement) {
-
+    constructor(container) {
+        this.container = container;
     }
-
-    render(item: HasFormatter|undefined, heading: string, pos: "start"|"end") {
+    render(item, heading, pos) {
+        var _a;
         const li = document.createElement("li");
         const h4 = document.createElement("h4");
         const p = document.createElement("p");
-
         h4.innerText = heading;
-        p.innerText = item?.format()??"";
-        
+        p.innerText = (_a = item === null || item === void 0 ? void 0 : item.format()) !== null && _a !== void 0 ? _a : "";
         li.append(h4);
         li.append(p);
-
         if ("start" === pos) {
             this.container.prepend(li);
-        } else if ("end" === pos) {
+        }
+        else if ("end" === pos) {
             this.container.append(li);
         }
     }

@@ -20,3 +20,20 @@ let mixed = ["ken", 4, "chun-li", 8, 9];
 mixed.push("ryu");  //valid
 mixed.push(10);     //valid
 //mixed.push(true)  //invalid
+
+//objects
+let ninja = {
+    name: "mario",
+    belt: "black",
+    age: 30,
+};
+
+ninja.name = "ryu";     //valid
+//ninja.name = 12;      //invalid
+//ninja.skills = ["flight", "fighting"]   //invalid
+ninja = {
+    name: "yoshi",
+    belt: "orange",
+    age: 40,                //Comment an existed field => invalid       
+    //skills: ["flight"],   //invalid
+}

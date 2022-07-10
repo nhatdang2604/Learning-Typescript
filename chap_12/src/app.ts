@@ -1,6 +1,21 @@
 "use strict";
 
 //Classes
+class Invoice {
+    #_client: string;
+    #_details: string;
+    #_amount: number;
+
+    constructor(client: string, details: string, amount: number) {
+        this.#_client = client;
+        this.#_details = details;
+        this.#_amount = amount;
+    }
+
+    format() {
+        return `${this.#_client} owes $${this.#_amount} for ${this.#_details}`;
+    }
+}
 
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
 

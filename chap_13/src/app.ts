@@ -2,18 +2,27 @@
 
 //Classes
 class Invoice {
-    #_client: string;
-    #_details: string;
-    #_amount: number;
 
-    constructor(client: string, details: string, amount: number) {
-        this.#_client = client;
-        this.#_details = details;
-        this.#_amount = amount;
-    }
+    //1st way
+    // readonly client: string;
+    // private details: string;
+    // private amount: number;
 
-    format() {
-        return `${this.#_client} owes $${this.#_amount} for ${this.#_details}`;
+    // public constructor(client: string, details: string, amount: number) {
+    //     this.client = client;
+    //     this.details = details;
+    //     this.amount = amount;
+    // }
+
+    //2nd way
+    public constructor(
+        readonly client: string,
+        private details: string,
+        private amount: number,
+    ) {}
+
+    public format() {
+        return `${this.client} owes $${this.amount} for ${this.details}`;
     }
 }
 
@@ -22,7 +31,7 @@ invoices.push(new Invoice("mario", "work on the mario webiste", 250));
 invoices.push(new Invoice("luigi", "work on the luigi webiste", 300));
 
 for (const invoice of invoices) {
-    console.log(invoice);
+    console.log(invoice.client, invoice.format());
 }
 
 //console.log(invoices[0].#_client);        //invalid

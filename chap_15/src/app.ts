@@ -1,4 +1,35 @@
 "use strict";
+
+//interfaces
+interface IsPerson {
+    name: string;
+    age: number;
+    speak(a: string): void;
+    spend(a: number): number;
+}
+
+const me: IsPerson = {
+    name: "shaun",
+    age: 30,
+    speak(text: string): void {
+        console.log(text);
+    },
+
+    spend(amount: number): number {
+        console.log(`I spend ${amount}`);
+        return amount;
+    }
+
+};
+
+let greetPerson = (person: IsPerson): void => {
+    console.log(`Hello ${person.name}`);
+}
+
+//greetPerson({name: "shaun"}); //invalid
+greetPerson(me);
+console.log(me);
+
 import {Invoice} from "./classes/Invoice.js";
 
 let invoices: Invoice[] = [];

@@ -1,4 +1,21 @@
 "use strict";
+const me = {
+    name: "shaun",
+    age: 30,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        console.log(`I spend ${amount}`);
+        return amount;
+    }
+};
+let greetPerson = (person) => {
+    console.log(`Hello ${person.name}`);
+};
+//greetPerson({name: "shaun"}); //invalid
+greetPerson(me);
+console.log(me);
 import { Invoice } from "./classes/Invoice.js";
 let invoices = [];
 invoices.push(new Invoice("mario", "work on the mario webiste", 250));
